@@ -31,6 +31,16 @@ python test_scheduler.py               # ต้องพิมพ์ ok
 
 ค่าอื่น ๆ เช่น ช่วงเวลาทำการ, พักเที่ยง, ขนาด slot, คะแนนและ penalty ปรับได้ที่หัวไฟล์ `scheduler.py` (ส่วน `Settings`)
 
+### รันเป็นเว็บ (Streamlit)
+
+```bash
+streamlit run streamlit_app.py
+```
+
+เลือกโหมดและเวลาได้จากแถบด้านซ้าย จะอัปโหลด CSV มาแทนไฟล์ใน `Data/CSV` ก็ได้ ถ้าชื่อไฟล์ตรงกันจะใช้ไฟล์ที่อัปโหลดแทน ส่วนผลลัพธ์กดดาวน์โหลดได้จากหน้าเว็บ
+
+ถ้าจะ deploy ขึ้นเว็บ ให้ใช้ [Streamlit Community Cloud](https://share.streamlit.io) โดยเลือก repo นี้และตั้ง main file เป็น `streamlit_app.py`
+
 ### รันบน Google Colab
 
 อัปโหลด `scheduler.py` และโฟลเดอร์ `Data/CSV` ขึ้น Colab แล้วรัน:
