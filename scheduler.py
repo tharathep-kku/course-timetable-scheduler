@@ -137,8 +137,8 @@ def fixed_meetings(fixed, teachers_of):
     return meetings
 
 
-def solve(data_dir, mode='flexible', time_limit=120):
-    """Return (scheduled, unscheduled) DataFrames."""
+def solve(data_dir, mode='flexible', time_limit=120, workers=0):
+    """Return (scheduled, unscheduled) DataFrames. workers=0 uses every CPU core (~150 MB RAM per worker)."""
     rooms, teachers_of, busy_of, max_slots_per_day, courses, fixed = load(data_dir)
     tasks = build_tasks(courses, teachers_of)
     meetings = fixed_meetings(fixed, teachers_of)
@@ -228,6 +228,7 @@ def solve(data_dir, mode='flexible', time_limit=120):
     model.Maximize(sum(objective))
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = time_limit
+    solver.parameters.num_workers = workers
     status = solver.Solve(model)
     if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
         raise RuntimeError(f'Solver found no solution: {solver.StatusName(status)}')

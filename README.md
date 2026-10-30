@@ -37,7 +37,7 @@ python test_scheduler.py               # ต้องพิมพ์ ok
 streamlit run streamlit_app.py
 ```
 
-เลือกโหมดและเวลาได้จากแถบด้านซ้าย จะอัปโหลด CSV มาแทนไฟล์ใน `Data/CSV` ก็ได้ ถ้าชื่อไฟล์ตรงกันจะใช้ไฟล์ที่อัปโหลดแทน ส่วนผลลัพธ์กดดาวน์โหลดได้จากหน้าเว็บ
+เลือกได้ว่าจะใช้ข้อมูลตัวอย่างหรืออัปโหลด CSV ชุดของตัวเอง ระบบจะเช็กชื่อไฟล์และคอลัมน์ก่อนรัน ส่วนรูปแบบไฟล์ดูได้ในหน้าเว็บ ในเว็บ solver ใช้ 4 workers เพื่อไม่ให้ RAM เกินที่ Streamlit Cloud ให้
 
 ถ้าจะ deploy ขึ้นเว็บ ให้ใช้ [Streamlit Community Cloud](https://share.streamlit.io) โดยเลือก repo นี้และตั้ง main file เป็น `streamlit_app.py`
 
